@@ -22,7 +22,7 @@ const getAllUsersFromDb = () => __awaiter(void 0, void 0, void 0, function* () {
         fullName: 1,
         age: 1,
         email: 1,
-        address: 1
+        address: 1,
     });
     return result;
 });
@@ -31,7 +31,10 @@ const getSpecipicUser = (userId) => __awaiter(void 0, void 0, void 0, function* 
     return specificUser;
 });
 const updateSingleUser = (userId, userData) => __awaiter(void 0, void 0, void 0, function* () {
-    const updatedUser = yield user_model_1.userModel.findOneAndUpdate({ userId }, userData, { new: true, fields: '-password' });
+    const updatedUser = yield user_model_1.userModel.findOneAndUpdate({ userId }, userData, {
+        new: true,
+        fields: '-password',
+    });
     return updatedUser;
 });
 const deleteSpecipicUser = (userId) => __awaiter(void 0, void 0, void 0, function* () {

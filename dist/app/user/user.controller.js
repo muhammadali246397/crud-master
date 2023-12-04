@@ -25,20 +25,20 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             return res.status(500).json({
                 success: false,
                 message: 'joi validation error',
-                error
+                error,
             });
         }
         res.status(200).json({
             success: true,
-            message: "User created successfully!",
-            data: result
+            message: 'User created successfully!',
+            data: result,
         });
     }
     catch (err) {
         res.status(500).json({
             success: false,
             message: 'something is worng',
-            error: err
+            error: err,
         });
     }
 });
@@ -47,15 +47,15 @@ const getAllUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         const result = yield user_service_1.userService.getAllUsersFromDb();
         res.status(200).json({
             success: true,
-            message: "Users fetched successfully!",
-            data: result
+            message: 'Users fetched successfully!',
+            data: result,
         });
     }
     catch (err) {
         res.status(500).json({
             success: false,
             message: 'user not found!',
-            error: err
+            error: err,
         });
     }
 });
@@ -67,24 +67,24 @@ const getSpecificUser = (req, res) => __awaiter(void 0, void 0, void 0, function
         if (!getOneUser) {
             return res.status(404).json({
                 success: false,
-                message: "User not found!",
+                message: 'User not found!',
                 error: {
                     code: 404,
-                    description: 'user not found'
-                }
+                    description: 'user not found',
+                },
             });
         }
         res.status(200).json({
             success: true,
-            message: "User fetched successfully!",
-            data: getOneUser
+            message: 'User fetched successfully!',
+            data: getOneUser,
         });
     }
     catch (err) {
         res.status(500).json({
             success: false,
             message: 'user not found',
-            error: err
+            error: err,
         });
     }
 });
@@ -96,7 +96,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             return res.status(500).json({
                 success: false,
                 message: 'joi validation error',
-                error
+                error,
             });
         }
         const { userId } = req.params;
@@ -105,17 +105,17 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         if (!user) {
             return res.status(404).json({
                 success: false,
-                message: "User not found!",
+                message: 'User not found!',
                 error: {
                     code: 404,
-                    description: 'user not found'
-                }
+                    description: 'user not found',
+                },
             });
         }
         const result = yield user_service_1.userService.updateSingleUser(Id, userData);
         res.status(200).json({
             success: true,
-            message: "User updated successfully!",
+            message: 'User updated successfully!',
             data: result,
         });
     }
@@ -123,7 +123,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(500).json({
             success: false,
             message: 'something went worng',
-            error: err
+            error: err,
         });
     }
 });
@@ -134,24 +134,24 @@ const deleteSingleUser = (req, res) => __awaiter(void 0, void 0, void 0, functio
         if (!deleteUser) {
             return res.status(404).json({
                 success: false,
-                message: "User not found!",
+                message: 'User not found!',
                 error: {
                     code: 404,
-                    description: 'user not found'
-                }
+                    description: 'user not found',
+                },
             });
         }
         res.status(200).json({
             success: true,
-            message: "User deleted successfully!",
-            data: deleteUser
+            message: 'User deleted successfully!',
+            data: null,
         });
     }
     catch (err) {
         res.status(500).json({
             success: false,
             message: 'something went worng',
-            error: err
+            error: err,
         });
     }
 });
