@@ -6,9 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({ path: path_1.default.join(process.cwd(), '.env') });
-console.log(process.env.PORT);
-console.log(process.env.DATABASE_URL);
 exports.default = {
     port: process.env.PORT,
-    DB_URL: process.env.DATABASE_URL
+    DB_URL: process.env.DATABASE_URL,
+    bcrypt_salt_round: process.env.BCRYPT_SALT_ROUND
 };
